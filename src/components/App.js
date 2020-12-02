@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import WebRecipes from './API/WebRecipes';
+import RecipesIndex from './recipes/RecipesIndex';
 import Login from './registrations/Login';
 import Signup from './registrations/Signup';
 import Home from './Home';
@@ -67,6 +68,18 @@ class App extends Component {
               exact path='/signup'
               render={props => (
               <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route
+              exact path='/webrecipes'
+              render={props => (
+              <WebRecipes {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route
+              exact path='/recipesindex'
+              render={props => (
+              <RecipesIndex {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
           </Switch>

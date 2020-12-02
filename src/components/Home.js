@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
+import WebRecipes from './API/WebRecipes';
+import RecipesIndex from './recipes/RecipesIndex';
 
 const Home = (props) => {
 
@@ -13,6 +15,8 @@ const Home = (props) => {
       .catch(error => console.log(error))
     }
 
+
+
   return (
     <div>
       <Link to='/login'>Log In</Link>
@@ -24,6 +28,17 @@ const Home = (props) => {
         <Link to='/logout' onClick={handleClick}>Log Out</Link> :
         null
       }
+      {
+        props.loggedInStatus ?
+        <Link to='/webrecipes'>Inspiration</Link> :
+        null
+      }
+      {
+        props.loggedInStatus ?
+        <Link to='/recipesindex'>Recipe list</Link> :
+        null
+      }
+
     </div>
   );
 };

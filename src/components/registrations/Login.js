@@ -96,7 +96,7 @@ return (
           </button>
 
           <div>
-           or <Link to='/signup'>sign up</Link>
+           or <Link to='/signup'>Sign up</Link>
           </div>
 
         </form>
