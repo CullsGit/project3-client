@@ -3,6 +3,8 @@ import axios from 'axios';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import WebRecipes from './API/WebRecipes';
 import RecipesIndex from './recipes/RecipesIndex';
+import RecipeShow from './recipes/RecipeShow';
+import RecipeForm from './recipes/RecipeForm';
 import Login from './registrations/Login';
 import Signup from './registrations/Signup';
 import Home from './Home';
@@ -82,6 +84,8 @@ class App extends Component {
               <RecipesIndex {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             />
+            <Route path="/recipe/:id" exact component={RecipeShow} />
+            <Route path="/recipe" exact component={RecipeForm} />
           </Switch>
         </BrowserRouter>
       </div>
