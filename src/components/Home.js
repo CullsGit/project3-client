@@ -21,29 +21,33 @@ const Home = (props) => {
 
   return (
     <div>
-      <h1>Welcome to myCookBook</h1>
-      <h2>Please Login</h2>
-      <Link to='/login'>Log In</Link>
+    <div className='centered'>
+      <h1 className='login-page'>Welcome to myCookBook</h1>
+      <Link to='/login' className='rego-link'>Log In</Link>
       <br></br>
-      <Link to='/signup'>Sign Up</Link>
+      <Link to='/signup' className='rego-link'>Sign Up</Link>
       <br></br>
-      {
-        props.loggedInStatus ?
-        <Link to='/logout' onClick={handleClick}>Log Out</Link> :
-        null
-      }
-      {
-        props.loggedInStatus ?
-        <Link to='/webrecipes'>Inspiration</Link> :
-        null
-      }
-      {
-        props.loggedInStatus ?
-        <Link to='/recipesindex'>Recipe list</Link> :
-        null
-      }
+
+
+
 
     </div>
+    {
+      props.loggedInStatus ?
+      <Link to='/logout' className='create-link b' onClick={handleClick}>Log Out</Link> :
+      null
+    }
+    {
+      props.loggedInStatus ?
+      <Link to='/recipesindex' className='create-link a'>Recipe list</Link> :
+      null
+    }
+    {
+      props.loggedInStatus ?
+      <Link to='/webrecipes' className='create-link'>Inspiration</Link> :
+      null
+    }
+  </div>
   );
 };
 

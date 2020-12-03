@@ -64,7 +64,7 @@ render() {
 
 return (
       <div>
-        <h1>Sign Up</h1>
+        <h1 className='API-title'>Sign Up</h1>
 
        <form onSubmit={this.handleSubmit}>
           <input

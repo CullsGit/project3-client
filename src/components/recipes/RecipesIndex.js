@@ -11,7 +11,7 @@ class RecipesIndex extends Component {
       recipes: []
     };
   }
-  
+
   componentDidMount() {
       const url = "http://localhost:3001/recipes/index";
       fetch(url)
@@ -69,9 +69,9 @@ class RecipesIndex extends Component {
               </Link>
             </div>
             <div>
-              <Link to="/logout"
+              <Link to="/"
                 className='create-link b' >
-                Log Out
+                Home
               </Link>
             </div>
             <div>

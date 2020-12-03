@@ -68,7 +68,7 @@ render() {
 
 return (
       <div>
-        <h1>Log In</h1>
+        <h1 className='API-title'>Log In</h1>
         <form onSubmit={this.handleSubmit}>
           <input
             placeholder="username"

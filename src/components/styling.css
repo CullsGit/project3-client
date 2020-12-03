@@ -78,6 +78,27 @@ div {
   background-color: #f9f1f1
 }
 
+.login-page {
+  font-family: 'Sansita Swashed', cursive;
+  border: 5px solid black;
+  height: 6vh;
+  padding: 10px;
+
+
+  background-color: #f9f1f1
+}
+
+.rego-link {
+  font-family: 'Sansita Swashed', cursive;
+  border: 5px solid black;
+  height: 2vh;
+  color: black;
+  padding: 10px;
+  line-height: 100%;
+  display: inline-block;
+  background-color: #f9f1f1
+}
+
 .create-link {
   font-family: 'Sansita Swashed', cursive;
   border: 5px solid black;
@@ -113,4 +134,11 @@ div {
   font-size: 15px;
   text-decoration: underline;
   font-weight: bolder;
+}
+
+.centered {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
