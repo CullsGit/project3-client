@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@500&display=swap');
+
+body {
+  background-color: pink;
+}
+
+div {
+  text-align: center;
+}
+
+.recipesImage {
+  width:  100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.recipeName {
+  font-family: 'Sansita Swashed', cursive;
+  text-decoration: none;
+  font-size: 600px;
+}
+
+.list-group {
+  list-style-type: "→ ";
+  list-style-position: inside;
+
+}
+
+.showContainer {
+  width: 100%;
+    max-width: 400px;
+    background: white;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.api-recipe-column {
+  font-family: 'Sansita Swashed', cursive;
+  border: 10px solid black;
+  width: 60vh;
+  height: 100vh;
+  display: inline-block;
+  background-color: #f9f1f1
+}
+
+
+.recipe-show-container {
+  font-family: 'Sansita Swashed', cursive;
+  border: 10px solid black;
+  width: 60vh;
+  height: 60vh;
+  display: inline-block;
+  background-color: #f9f1f1
+}
+
+.recipe-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.API-search  {
+  height: 5vh;
+  border-radius: 0.5em;
+  padding: 5px;
+  margin: 0 auto;
+}
+
+.API-title {
+  font-family: 'Sansita Swashed', cursive;
+  border: 5px solid black;
+  height: 6vh;
+  padding: 10px;
+
+  display: inline-block;
+  background-color: #f9f1f1
+}
+
+.create-link {
+  font-family: 'Sansita Swashed', cursive;
+  border: 5px solid black;
+  height: 2vh;
+  color: black;
+  padding: 10px;
+  line-height: 100%;
+  position: fixed;
+  left: 1%;
+  top: 1%;
+  display: inline-block;
+  background-color: #f9f1f1
+}
+
+.a {
+  left: 15%
+}
+
+.b {
+  left: 90%;
+}
+
+.show-title {
+  font-family: 'Sansita Swashed', cursive;
+  height: 6vh;
+  width: 40%;
+  font-size: 100%;
+  border: 6px solid black;
+  margin-top: 30px;
+}
+
+.recipe-sub-headers {
+  font-size: 15px;
+  text-decoration: underline;
+  font-weight: bolder;
+}

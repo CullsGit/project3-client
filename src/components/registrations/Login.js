@@ -47,7 +47,7 @@ axios.post('http://localhost:3001/login', {user}, {withCredentials: true})
     .catch(error => console.log('api errors:', error))
   };
 redirect = () => {
-    this.props.history.push('/')
+    this.props.history.push('/recipesindex')
   }
 
 handleErrors = () => {

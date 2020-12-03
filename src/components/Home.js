@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import WebRecipes from './API/WebRecipes';
 import RecipesShow from './recipes/RecipeShow';
 import RecipesIndex from './recipes/RecipesIndex';
+import './styling.css';
 
 const Home = (props) => {
 
@@ -20,6 +21,8 @@ const Home = (props) => {
 
   return (
     <div>
+      <h1>Welcome to myCookBook</h1>
+      <h2>Please Login</h2>
       <Link to='/login'>Log In</Link>
       <br></br>
       <Link to='/signup'>Sign Up</Link>

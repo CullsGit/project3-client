@@ -11,6 +11,7 @@ class RecipesIndex extends Component {
       recipes: []
     };
   }
+  
   componentDidMount() {
       const url = "http://localhost:3001/recipes/index";
       fetch(url)
@@ -27,24 +28,20 @@ class RecipesIndex extends Component {
   render() {
     const { recipes } = this.state;
     const allRecipes = recipes.map((recipe, index) => (
-      <div key={index} className="col-md-6 col-lg-4">
-        <div className="card mb-4">
-          <img
+      <div key={index}>
+        <div className="recipe-show-container">
+          <a href={`/recipe/${recipe.id}`}><img className="recipesImage"
             src={recipe.image}
-            className="card-img-top"
             alt={`${recipe.dish} image`}
-          />
-          <div className="card-body">
-            <h5 className="card-title">{recipe.dish}</h5>
-            <Link to={`/recipe/${recipe.id}`} className="btn custom-button">
-              View Recipe
-            </Link>
+          /></a>
+        <div>
+            <h1>{recipe.dish}</h1>
           </div>
         </div>
       </div>
     ));
     const noRecipe = (
-      <div className="vw-100 vh-50 d-flex align-items-center justify-content-center">
+      <div>
         <h4>
           No recipes yet. Why not <Link to="/new_recipe">create one</Link>
         </h4>
@@ -53,29 +50,33 @@ class RecipesIndex extends Component {
 
     return (
       <>
-        <section className="jumbotron jumbotron-fluid text-center">
-          <div className="container py-5">
-            <h1 className="display-4">Recipes for every occasion</h1>
-            <p className="lead text-muted">
-              We’ve pulled together our most popular recipes, our latest
-              additions, and our editor’s picks, so there’s sure to be something
-              tempting for you to try.
-            </p>
+        <section>
+          <div>
+            <h1 className='API-title'>Recipes for every occasion</h1>
           </div>
         </section>
-        <div className="py-5">
-          <main className="container">
-            <div className="text-right mb-3">
-              <Link to="/recipe" className="btn custom-button">
+        <div>
+          <main>
+            <div>
+              <Link to="/recipe" className='create-link'>
                 Create New Recipe
               </Link>
             </div>
-            <div className="row">
+            <div>
+              <Link to="/webrecipes"
+                className='create-link a' >
+                Inspiration
+              </Link>
+            </div>
+            <div>
+              <Link to="/logout"
+                className='create-link b' >
+                Log Out
+              </Link>
+            </div>
+            <div>
               {recipes.length > 0 ? allRecipes : noRecipe}
             </div>
-            <Link to="/" className="btn btn-link">
-              Home
-            </Link>
           </main>
         </div>
       </>

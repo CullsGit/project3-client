@@ -67,10 +67,12 @@ class RecipeForm extends React.Component {
         <div>
           <div>
             <div>
-              <h1>
-                Add a new recipe to our awesome recipe collection.
-              </h1>
-              <form onSubmit={this.onSubmit}>
+
+              <form  onSubmit={this.onSubmit}
+                className="api-recipe-column">
+                <h1 className='API-title'>
+                  Create New Recipe
+                </h1>
                 <div>
                   <label htmlFor="recipeName">Recipe name</label>
                   <input
@@ -103,7 +105,9 @@ class RecipeForm extends React.Component {
                   Create Recipe
                 </button>
                 <Link to="/recipesindex">
+                  <button className='show-title'>
                   Back to recipes
+                  </button>
                 </Link>
               </form>
             </div>

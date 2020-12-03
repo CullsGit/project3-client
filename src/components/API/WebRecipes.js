@@ -1,5 +1,6 @@
 import React, { Component, useEffect, useState } from 'react';
 import RecipeList from './RecipeList'
+import {Link} from 'react-router-dom';
 
 const WebRecipes = () => {
   //Edamam API
@@ -30,15 +31,23 @@ const WebRecipes = () => {
   }
   return (
     <div>
-      <h1>Inspiration from the web</h1>
+      <h1 className='API-title'>Inspiration from the web</h1>
+      <Link to="/recipesindex"
+        className='create-link a' >
+        Recipes
+      </Link>
+      <Link to="/recipesindex"
+        className='create-link' >
+        Create New Recipe
+      </Link>
       <form onSubmit={_getSearch}>
-        <input
+        <input className="API-search"
           type="text"
           value={search}
           onChange={_updateSearch}
           placeholder="Chicken"
          />
-        <button type="submit">
+        <button className="API-search" type="submit">
           Search
         </button>
       </form>
