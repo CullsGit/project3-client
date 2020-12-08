@@ -34,7 +34,7 @@ const Home = (props) => {
     </div>
     {
       props.loggedInStatus ?
-      <Link to='/logout' className='create-link b' onClick={handleClick}>Log Out</Link> :
+      <Link to='/' className='create-link b' onClick={handleClick}>Log Out</Link> :
       null
     }
     {

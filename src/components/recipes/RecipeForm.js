@@ -1,9 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from 'axios';
 
-class RecipeForm extends React.Component {
+class RecipeForm extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+
     this.state = {
       dish: "",
       image: "",
@@ -13,105 +15,92 @@ class RecipeForm extends React.Component {
       method: ""
     };
 
-    this.onChange = this.onChange.bind(this);
-    this.onSubmit = this.onSubmit.bind(this);
-    this.stripHtmlEntities = this.stripHtmlEntities.bind(this);
+    // this.onChange = this.onChange.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
   }
 
-  stripHtmlEntities(str) {
-    return String(str)
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;");
+  changeHandler = (event) => {
+    this.setState({ [event.target.name]: event.target.value })
+  }
+
+  submitHandler = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+    axios.post('http://localhost:3001/recipes/create', this.state)
+    .then(response => {
+      console.log(response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 
 
-    onChange(event) {
-      this.setState({ [event.target.dish]: event.target.value });
-    }
 
-    onSubmit(event) {
-      event.preventDefault();
-      const url = "http://localhost:3001/recipes/create";
-      const { dish, image, serves, time, ingredients, method } = this.state;
 
-      if (dish.length == 0 || ingredients.length == 0 || method.length == 0)
-        return;
 
-      const body = {
-        dish,
-        ingredients,
-        method: method.replace(/\n/g, "<br> <br>")
-      };
-
-      const token = document.querySelector('meta[name="csrf-token"]').content;
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "X-CSRF-Token": token,
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(body)
-      })
-        .then(response => {
-          if (response.ok) {
-            return response.json();
-          }
-          throw new Error("Network response was not ok.");
-        })
-        .then(response => this.props.history.push(`/recipe/${response.id}`))
-        .catch(error => console.log(error.message));
-    }
 
     render() {
+      const {dish, image, serves, time, ingredients, method} = this.state
       return (
         <div>
-          <div>
+          <form onSubmit={this.submitHandler}>
             <div>
-
-              <form  onSubmit={this.onSubmit}
-                className="api-recipe-column">
-                <h1 className='API-title'>
-                  Create New Recipe
-                </h1>
-                <div>
-                  <label htmlFor="recipeName">Recipe name</label>
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    onChange={this.onChange}
-                  />
-                </div>
-                <div>
-                  <label htmlFor="recipeIngredients">Ingredients</label>
-                  <input
-                    type="text"
-                    name="ingredients"
-                    required
-                    onChange={this.onChange}
-                  />
-                  <small>
-                    Separate each ingredient with a comma.
-                  </small>
-                </div>
-                <label htmlFor="instruction">Method:</label>
-                <textarea
-                  name="instruction"
-                  rows="5"
-                  required
-                  onChange={this.onChange}
-                />
-                <button type="submit">
-                  Create Recipe
-                </button>
-                <Link to="/recipesindex">
-                  <button className='show-title'>
-                  Back to recipes
-                  </button>
-                </Link>
-              </form>
+              <input
+                type="text"
+                name="dish"
+                placeholder="Vegetable Lasagna"
+                value={dish}
+                onChange={this.changeHandler}>
+              </input>
             </div>
-          </div>
+            <div>
+              <input
+                type="text"
+                name="image"
+                placeholder="http://"
+                value={image}
+                onChange={this.changeHandler}>
+              </input>
+            </div>
+            <div>
+              <input
+                type="number"
+                name="serves"
+                placeholder="4"
+                value={serves}
+                onChange={this.changeHandler}>
+              </input>
+            </div>
+            <div>
+              <input
+                type="number"
+                name="time"
+                placeholder="60"
+                value={time}
+                onChange={this.changeHandler}>
+              </input>
+            </div>
+            <div>
+              <input
+                type="textarea"
+                name="ingredients"
+                placeholder="Eggs, Olive oil..."
+                value={ingredients}
+                onChange={this.changeHandler}>
+              </input>
+            </div>
+            <div>
+              <input
+                type="text"
+                name="method"
+                placeholder="Step 1, Chop onions..."
+                value={method}
+                onChange={this.changeHandler}>
+              </input>
+            </div>
+              <button type="submit">Submit</button>
+          </form>
         </div>
       );
     }

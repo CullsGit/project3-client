@@ -1,5 +1,5 @@
 import React, { Component, useEffect, useState } from 'react';
-import RecipeList from './RecipeList'
+import RecipeList from './RecipeList';
 import {Link} from 'react-router-dom';
 
 const WebRecipes = () => {
